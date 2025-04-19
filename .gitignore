@@ -1,0 +1,8 @@
+# Large files to ignore
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# OS/system files
+.DS_Store
+
