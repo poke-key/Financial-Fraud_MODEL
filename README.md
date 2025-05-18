@@ -4,16 +4,16 @@ Classify financial transactions as fraudulent or non-fraudulent
 
 **Author:** Dipti Srivastava
 
-### Executive Summary
+## Executive Summary
 
 This project uses supervised machine learning to predict whether a financial transaction is fraudulent. The goal is to build models that can assist financial institutions in identifying suspicious activity with high precision and recall — ultimately reducing fraud losses while minimizing false positives for legitimate users.
 
-### Rationale
+## Rationale
 
 Financial fraud is a growing global concern, costing billions each year. By leveraging machine learning, businesses can proactively identify patterns in fraudulent behavior and intervene earlier. The challenge lies in detecting rare fraudulent cases hidden among massive volumes of legitimate transactions, with minimal disruption to customer experience.
 
 
-### Research Question
+## Research Question
 
 > **Can we accurately classify financial transactions as fraudulent or non-fraudulent using machine learning models?**
 
@@ -24,9 +24,9 @@ Financial fraud is a growing global concern, costing billions each year. By leve
   
 This dataset includes anonymized transaction data with engineered features including device type, card information, and email domains. The target variable is `isFraud`.
 
-### Methodology
+## Methodology
 
-#### 1. Exploratory Data Analysis (EDA)
+## I. Exploratory Data Analysis (EDA)
 
 - Assessed dataset shape, data types, and cardinality of features.
 - Visualized missing data using heatmaps and computed missing value % per feature.
@@ -36,33 +36,36 @@ This dataset includes anonymized transaction data with engineered features inclu
   - Email domains and operating systems
   - Temporal patterns using `TransactionDT` for transaction hour/day analysis
 
-#### Initial EDA Findings based on RAW data
+## Initial EDA Findings based on RAW data
 
-##### Key Observations
+### Key Observations
 
 1. **Target Variable Imbalance (`isFraud`)**
    - Highly imbalanced: ~99.8% non-fraud vs ~0.2% fraud.
    - Will require class balancing strategies (e.g., SMOTE or `class_weight='balanced'`).
 
-   ![Target Class Imbalance](/images/Fraud-vs-NonFraud.png)
+   <img src="images/Fraud-vs-NonFraud.png" alt="Target Class Imbalance" width="500"/>
 
 2. **Missing Values**
    - Over 200 features have missing data, especially among `id_`, `D_`, and `V_` columns.
    - Some features (e.g., `id_12`, `id_13`, `V300+`) have >90% missing values.
    - Missingness matrix reveals structured patterns—some columns may be worth keeping despite missingness.
+     
 ![Top 50 Missing Values by Column](/images/Top%20N%20Missing%20Values%20by%20Column.png)
 3. **Numeric Feature Distributions**
    - `TransactionAmt`, `id_02`, and `D15` show heavy right skew and possible outliers.
    - Fraudulent transactions cluster at lower transaction amounts.
+     
 ![Numeric Feature Distributions](/images/Numeric%20Feature%20Distributions%20by%20Fraud%20Label.png)
 4. **Categorical Features**
    - Some categorical variables (`ProductCD`, `card4`, `card6`) show variation by fraud class.
    - Fields like `DeviceType`, `id_30`, and `id_31` contain `"unknown"` and `"NotFound"` entries—these may be fraud indicators.
    - Some categories are heavily imbalanced, and will require careful encoding.
+     
 ![Categorical Features](/images/Categorical%20Feature%20Distribution%20by%20Fraud%20Label.png)
 
 
-##### Recommendations Based on EDA
+### Recommendations Based on EDA
 
 | Area                     | Recommendation                                                                 |
 |--------------------------|----------------------------------------------------------------------------------|
@@ -73,7 +76,7 @@ This dataset includes anonymized transaction data with engineered features inclu
 | Temporal Features        | Engineer features from `TransactionDT`: hour, day, weekday.                     |
 | Device/Browser Info      | Investigate `id_30`, `id_31`, and `DeviceType` for fraud patterns.              |
 
-#### 2. Feature Engineering
+## II. Feature Engineering
 
 - Created time-based features:
   - `TransactionHour`, `TransactionDay`, and `TransactionWeekday` from `TransactionDT`
@@ -104,18 +107,18 @@ This dataset includes anonymized transaction data with engineered features inclu
    - Extracted temporal features: `TransactionHour`, `TransactionDay`, `TransactionWeekday`.
    - These new features allow the model to detect **fraud patterns based on time-of-day or day-of-week**.
 
-##### Feature Correlation Check
+#### Feature Correlation Check
 ![Feature Correlation](/images/Feature%20Correlation%20Check.png)
 
-We computed a correlation matrix on all selected features to detect highly correlated (redundant) pairs. A threshold of 0.9 was used to identify problematic correlations.
+**We computed a correlation matrix on all selected features to detect highly correlated (redundant) pairs. A threshold of 0.9 was used to identify problematic correlations.**
 
-**Result:** No pairs exceeded 0.9 correlation.
+**Result: No pairs exceeded 0.9 correlation.**
 
 This means:
 - All selected features provide unique or complementary signal.
-- We will retain the full feature set (`feature_cols`) for baseline modeling.
+- We will retain the following feature set for baseline modeling.
 
-#### Final Feature Set for Modeling
+### Final Feature Set for Modeling
 
 | Feature Name            | Feature Type       | Notes/Description                                  |
 |--------------------------|--------------------|----------------------------------------------------|
@@ -138,7 +141,7 @@ This means:
 | id_33_missing_flag       | Binary Flag         | Missing flag for `id_33` (if available)             |
 
 
-#### 3. Baseline Modeling
+## III. Modeling
 
 - **Class imbalance handling**:
   - Used **SMOTE** oversampling for Logistic Regression
@@ -151,9 +154,16 @@ This means:
 - **Feature preprocessing**:
   - Imputed missing values with `SimpleImputer(strategy='median')`
   - Standardized numerical features for Logistic Regression using `StandardScaler`
-![CF-LR](/images/Confusion%20Matrix%20-%20LR.png) ![CF-RF](/images/Confusion%20Matrix%20-%20RF.png)
+    
+<p align="center">
+  <img src="images/Confusion%20Matrix%20-%20LR.png" alt="Confusion Matrix - Logistic Regression" width="500"/>
+  <img src="images/Confusion%20Matrix%20-%20RF.png" alt="Confusion Matrix - Random Forest" width="500"/>
+</p>
 
-#### 4. Baseline Model Evaluation
+<p align="center"><b>Confusion Matrices: Logistic Regression vs Random Forest</b></p>
+
+
+## IV. Evaluation
 
 - Computed:
   - Accuracy, Precision, Recall, F1-score, ROC-AUC
@@ -177,117 +187,48 @@ We trained and evaluated two baseline models to classify fraudulent transactions
 **Key Takeaways:**
 Logistic Regression performed well with SMOTE it has better recall on minority class.
 Random Forest had slightly better ROC-AUC and overall F1 score.
-We tuned hyperparameters, used gradient boosting (XGBoost/LightGBM) as well.
+Next steps: Tune hyperparameters, try gradient boosting (XGBoost/LightGBM), and add feature importance analysis
 
-### Baseline Modeling Results
+## Results
 
 | Model               | Precision (Fraud) | Recall (Fraud) | ROC-AUC |
 |--------------------|-------------------|----------------|---------|
 | Logistic Regression (SMOTE) | 8%               | **61%**         | 0.74    |
 | Random Forest (weighted)    | **92%**           | 31%            | **0.89** |
 
-### Baseline Modeling Insights:
+## Insights:
 - **Logistic Regression** catches more fraud but with many false alarms.
 - **Random Forest** is more precise but misses more fraud.
 - Logistic is better when **recall matters most** (e.g., catching fraud at all costs).
 - Random Forest is better when **precision matters** (e.g., avoid flagging good customers).
 
-## Final Evaluation & Model Insights
-
-### Final Model Comparison – Fraud Classification
-
-| Model               | Accuracy | Precision (Fraud) | Recall (Fraud) | F1 Score (Fraud) | ROC-AUC |
-|---------------------|----------|-------------------|----------------|------------------|---------|
-| Logistic Regression | 75%      | 8%                | 61%            | 0.14             | 0.74    |
-| Random Forest       | 97%      | 92%               | 31%            | 0.46             | 0.89    |
-| XGBoost (Base)      | 88%      | 18%               | 66%            | 0.28             | 0.86    |
-| **XGBoost (Tuned)** | 87%      | 16%               | **65%**        | 0.26             | **0.85** |
-
-**Confusion Matrix:**  
-![Tuned Confusion Matrix](/images/Confusion%20Matrix%20-%20XGB%20Tuned.png)
+## Business Takeaway:
+The right model depends on risk tolerance:
+- Want to **catch more fraud** even if noisy? Use Logistic Regression.
+- Want to **flag fraud only when you're confident?** Use Random Forest.
 
 
-### Executive Summary: Model Trade-offs
+## Next Steps
 
-To address the challenge of detecting financial fraud, multiple models were evaluated across key performance metrics.
-
-- **Logistic Regression** captured more frauds but had high false positives, reducing its viability.
-- **Random Forest** was highly precise (92%) but missed many fraud cases (recall 31%).
-- **XGBoost** models showed the best balance:
-  - The **tuned XGBoost model** achieved **65% recall**, ideal for **high-risk fraud environments**.
-  - **Precision (16%)** can be adjusted via threshold tuning to meet business objectives.
-
-**Recommendation**:  
-Deploy the **tuned XGBoost model** with an **interactive threshold control** and **SHAP-based interpretability** to build a scalable, trustworthy fraud detection system.
-
-### Explainability: SHAP + Feature Insights
-
-**SHAP Summary Plot:**  
-![SHAP Summary Plot](/images/SHAP_Summary.png)  
-- Highlights top fraud predictors: `TransactionAmt`, `D15`, `card6`, and `P_emaildomain`.
-
-**XGBoost Feature Importances (Pre-SHAP):**  
-![XGBoost Feature Importances](/images/XGBoost_Feature_Importances.png)  
-- Validates the statistical importance of engineered and raw features.
-
----
-
-### Threshold Optimization Insights
-
-To better align the model’s output with business risk tolerance, we analyzed how **precision and recall vary by classification threshold**.
-
-**Threshold vs Precision–Recall:** 
-![Threshold PR Curve](/images/Threshold_Precision_Recall_Curve.png)
-
-- At threshold ~0.28, we observed a practical balance:
-  - **Precision ≈ 20%**
-  - **Recall ≈ 60–65%**
-- This lets decision-makers **tune sensitivity** dynamically without retraining the model.
-
-## Business Takeaway: 
-**Model Strategy Depends on Risk Appetite**
-In real-world fraud detection, the best model isn’t just about accuracy, it’s about aligning with your organization's fraud tolerance and operational capacity.
-
-**Here’s what the analysis reveals:**
-**Logistic Regression is recall-heavy** flags more potential frauds, making it suitable when missing fraud is costlier than reviewing false alarms (e.g., high-risk financial environments).
-Use it when: catching every possible fraud matters more than being precise.
-
-**Random Forest is precision-focused** it only flags when it’s very confident, meaning fewer false alarms but more missed fraud.
-Use it when: customer trust and minimizing disruption are top priorities.
-
-**XGBoost (Tuned) offers the best balance:**
-- Captures 65% of fraud cases
-- Allows for threshold tuning to optimize for either recall or precision
-- Explainable via SHAP to build trust with compliance and analysts
-
-## **Recommended Strategy:**
-Deploy the tuned XGBoost model with an adjustable threshold (e.g., via dashboard) so that business teams can dial fraud sensitivity up or down based on evolving risk and cost trade-offs.
+- Add advanced models: **XGBoost**
+- Perform **hyperparameter tuning** and **cross-validation**
+- Apply **feature importance** and **SHAP explainability**
+- Build a **threshold optimization dashboard** using precision-recall curves
+- Package into a deployable pipeline (e.g., Flask API, cloud integration)
 
 
-# Appendix
 ### Outline of Project
 
-- [Notebook – EDA, Feature Engineering, Model tuning](/detecting_financial_fraud.ipynb)
+- [Notebook – EDA & Feature Engineering](/detecting_financial_fraud.ipynb)
 
-## Deployment & MLOps Readiness
+### Contact and Further Information
 
-- Model Export: `fraud_xgb_tuned.pkl`
-- Explainability: SHAP global + local plots
-- Threshold control: Precision–recall dashboard
+For more information or collaboration, please contact:
 
-### Resources & Assets
-
-| Artifact                         | Location                                |
-|----------------------------------|-----------------------------------------|
-| Notebook: Capstone Modeling      | `detecting_financial_fraud.ipynb`       |
-| Final Model Export               | `models/fraud_xgb_tuned.pkl`            |
-| All Evaluation Visuals           | `images/` folder                        |
+- 📧 [Email -Dipti](mailto:dsrivast@gmail.com)
+- 🌐 [LinkedIn – Dipti Srivastava](https://linkedin.com/in/diptishrivastav)
+- 🐦 [Twitter – @dsrivast](https://twitter.com/dsrivast)
 
 
-### Contact
 
-For more information or collaboration:  
-[dsrivast@gmail.com](mailto:dsrivast@gmail.com)  
-[LinkedIn](https://linkedin.com/in/diptishrivastav)  
-[Twitter](https://twitter.com/dsrivast)
-
+*Built as part of a capstone project to showcase applied ML skills in a high-impact financial context.*
