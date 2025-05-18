@@ -138,7 +138,7 @@ This means:
 | id_33_missing_flag       | Binary Flag         | Missing flag for `id_33` (if available)             |
 
 
-#### 3. Modeling
+#### 3. Baseline Modeling
 
 - **Class imbalance handling**:
   - Used **SMOTE** oversampling for Logistic Regression
@@ -153,7 +153,7 @@ This means:
   - Standardized numerical features for Logistic Regression using `StandardScaler`
 ![CF-LR](/images/Confusion%20Matrix%20-%20LR.png) ![CF-RF](/images/Confusion%20Matrix%20-%20RF.png)
 
-#### 4. Evaluation
+#### 4. Baseline Model Evaluation
 
 - Computed:
   - Accuracy, Precision, Recall, F1-score, ROC-AUC
@@ -177,46 +177,117 @@ We trained and evaluated two baseline models to classify fraudulent transactions
 **Key Takeaways:**
 Logistic Regression performed well with SMOTE it has better recall on minority class.
 Random Forest had slightly better ROC-AUC and overall F1 score.
-Next steps: Tune hyperparameters, try gradient boosting (XGBoost/LightGBM), and add feature importance analysis
+We tuned hyperparameters, used gradient boosting (XGBoost/LightGBM) as well.
 
-### Results
+### Baseline Modeling Results
 
 | Model               | Precision (Fraud) | Recall (Fraud) | ROC-AUC |
 |--------------------|-------------------|----------------|---------|
 | Logistic Regression (SMOTE) | 8%               | **61%**         | 0.74    |
 | Random Forest (weighted)    | **92%**           | 31%            | **0.89** |
 
-### Insights:
+### Baseline Modeling Insights:
 - **Logistic Regression** catches more fraud but with many false alarms.
 - **Random Forest** is more precise but misses more fraud.
 - Logistic is better when **recall matters most** (e.g., catching fraud at all costs).
 - Random Forest is better when **precision matters** (e.g., avoid flagging good customers).
 
-### Business Takeaway:
-The right model depends on risk tolerance:
-- Want to **catch more fraud** even if noisy? Use Logistic Regression.
-- Want to **flag fraud only when you're confident?** Use Random Forest.
+## Final Evaluation & Model Insights
+
+### Final Model Comparison – Fraud Classification
+
+| Model               | Accuracy | Precision (Fraud) | Recall (Fraud) | F1 Score (Fraud) | ROC-AUC |
+|---------------------|----------|-------------------|----------------|------------------|---------|
+| Logistic Regression | 75%      | 8%                | 61%            | 0.14             | 0.74    |
+| Random Forest       | 97%      | 92%               | 31%            | 0.46             | 0.89    |
+| XGBoost (Base)      | 88%      | 18%               | 66%            | 0.28             | 0.86    |
+| **XGBoost (Tuned)** | 87%      | 16%               | **65%**        | 0.26             | **0.85** |
+
+**Confusion Matrix:**  
+![Tuned Confusion Matrix](/images/Confusion%20Matrix%20-%20XGB%20Tuned.png)
 
 
-### Next Steps
+### Executive Summary: Model Trade-offs
 
-- Add advanced models: **XGBoost**
-- Perform **hyperparameter tuning** and **cross-validation**
-- Apply **feature importance** and **SHAP explainability**
-- Build a **threshold optimization dashboard** using precision-recall curves
-- Package into a deployable pipeline (e.g., Flask API, cloud integration)
+To address the challenge of detecting financial fraud, multiple models were evaluated across key performance metrics.
+
+- **Logistic Regression** captured more frauds but had high false positives, reducing its viability.
+- **Random Forest** was highly precise (92%) but missed many fraud cases (recall 31%).
+- **XGBoost** models showed the best balance:
+  - The **tuned XGBoost model** achieved **65% recall**, ideal for **high-risk fraud environments**.
+  - **Precision (16%)** can be adjusted via threshold tuning to meet business objectives.
+
+**Recommendation**:  
+Deploy the **tuned XGBoost model** with an **interactive threshold control** and **SHAP-based interpretability** to build a scalable, trustworthy fraud detection system.
+
+### Explainability: SHAP + Feature Insights
+
+**SHAP Summary Plot:**  
+![SHAP Summary Plot](/images/SHAP_Summary.png)  
+- Highlights top fraud predictors: `TransactionAmt`, `D15`, `card6`, and `P_emaildomain`.
+
+**XGBoost Feature Importances (Pre-SHAP):**  
+![XGBoost Feature Importances](/images/XGBoost_Feature_Importances.png)  
+- Validates the statistical importance of engineered and raw features.
+
+---
+
+### Threshold Optimization Insights
+
+To better align the model’s output with business risk tolerance, we analyzed how **precision and recall vary by classification threshold**.
+
+**Threshold vs Precision–Recall:** 
+![Threshold PR Curve](/images/Threshold_Precision_Recall_Curve.png)
+
+- At threshold ~0.28, we observed a practical balance:
+  - **Precision ≈ 20%**
+  - **Recall ≈ 60–65%**
+- This lets decision-makers **tune sensitivity** dynamically without retraining the model.
+
+## Business Takeaway: 
+**Model Strategy Depends on Risk Appetite**
+In real-world fraud detection, the best model isn’t just about accuracy, it’s about aligning with your organization's fraud tolerance and operational capacity.
+
+**Here’s what the analysis reveals:**
+**Logistic Regression is recall-heavy** flags more potential frauds, making it suitable when missing fraud is costlier than reviewing false alarms (e.g., high-risk financial environments).
+Use it when: catching every possible fraud matters more than being precise.
+
+**Random Forest is precision-focused** it only flags when it’s very confident, meaning fewer false alarms but more missed fraud.
+Use it when: customer trust and minimizing disruption are top priorities.
+
+**XGBoost (Tuned) offers the best balance:**
+- Captures 65% of fraud cases
+- Allows for threshold tuning to optimize for either recall or precision
+- Explainable via SHAP to build trust with compliance and analysts
+
+## **Recommended Strategy:**
+Deploy the tuned XGBoost model with an adjustable threshold (e.g., via dashboard) so that business teams can dial fraud sensitivity up or down based on evolving risk and cost trade-offs.
 
 
+# Appendix
 ### Outline of Project
 
-- [Notebook – EDA & Feature Engineering](/detecting_financial_fraud.ipynb)
+- [Notebook – EDA, Feature Engineering, Model tuning](/detecting_financial_fraud.ipynb)
 
-### Contact and Further Information
+## Deployment & MLOps Readiness
 
-For more information or collaboration, please contact:  
-📧 [Email] (dsrivast@gmail.com) 
-🌐 [LinkedIn](https://linkedin.com/in/yourprofile)  
-🐦 [Twitter](https://twitter.com/yourhandle)
+- Model Export: `fraud_xgb_tuned.pkl`
+- Explainability: SHAP global + local plots
+- Threshold control: Precision–recall dashboard
+
+### Resources & Assets
+
+| Artifact                         | Location                                |
+|----------------------------------|-----------------------------------------|
+| Notebook: Capstone Modeling      | `detecting_financial_fraud.ipynb`       |
+| Final Model Export               | `models/fraud_xgb_tuned.pkl`            |
+| All Evaluation Visuals           | `images/` folder                        |
 
 
-*Built as part of a capstone project to showcase applied ML skills in a high-impact financial context.*
+### Contact
+
+For more information or collaboration:  
+[dsrivast@gmail.com](mailto:dsrivast@gmail.com)  
+[LinkedIn](https://linkedin.com/in/diptishrivastav)  
+[Twitter](https://twitter.com/dsrivast)
+
