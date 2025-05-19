@@ -273,21 +273,21 @@ In real-world fraud detection, the best model isn’t just about accuracy — it
 ## Recommended Strategy:
 **Deploy the tuned XGBoost model with an adjustable threshold** (e.g., via dashboard) so that business teams can dial fraud sensitivity up or down based on evolving risk and cost trade-offs.
 
-## VII. 
-## Deployment & MLOps Readiness
+## VII. Deployment & MLOps Readiness
 
 - Model Export: `fraud_xgb_tuned.pkl`
 - Explainability: SHAP global + local plots
 - Threshold control: Precision–recall dashboard
-- ☁Cloud-ready: Flask or Streamlit UI for real-time scoring
 
-### Resources & Assets
+## Resources & Assets
 
 | Artifact                         | Location                                                                 |
 |----------------------------------|--------------------------------------------------------------------------|
 | [Notebook: Capstone Modeling](./detecting_financial_fraud.ipynb)    | Main notebook with full EDA, modeling, and analysis                     |
-| [Final Model Export](./models/fraud_xgb_tuned.pkl)                  | Serialized XGBoost model (`.pkl`) for inference and deployment          |
+| [Final Model Export](./models/fraud_xgb_tuned.pkl)                  | Serialized XGBoost model for inference and deployment                   |
+| [Models Folder](./models/)                                         | Contains `fraud_xgb_tuned.pkl` and future serialized models             |
 | [All Evaluation Visuals](./images/)                                 | Folder with plots (confusion matrices, SHAP, threshold curves, etc.)    |
+
 
 ### Contact
 
