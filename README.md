@@ -217,7 +217,6 @@ Next steps: Tune hyperparameters, try gradient boosting (XGBoost/LightGBM), and 
 | **XGBoost (Tuned)** | 87%      | 16%               | **65%**        | 0.26             | **0.85** |
 
 **Confusion Matrix:**
-![Tuned Confusion Matrix](/images/Confusion Matrix - XGB Tuned.png)
 <img src="images/Confusion%20Matrix%20-%20XGB%20Tuned" alt="Confusion Matrix - XGB Tuned" width="500"/>
 
 ## Executive Summary: Model Trade-offs
