@@ -217,7 +217,7 @@ Next steps: Tune hyperparameters, try gradient boosting (XGBoost/LightGBM), and 
 | **XGBoost (Tuned)** | 87%      | 16%               | **65%**        | 0.26             | **0.85** |
 
 **Confusion Matrix:**
-![Tuned Confusion Matrix](/images/Confusion%20Matrix%20-%20XGB%20Tuned.png)
+![Tuned Confusion Matrix](/images/Confusion Matrix - XGB Tuned)
 
 
 ## Executive Summary: Model Trade-offs
@@ -286,7 +286,7 @@ In real-world fraud detection, the best model isn’t just about accuracy — it
 
 | Artifact                         | Location                                |
 |----------------------------------|-----------------------------------------|
-| Notebook: Capstone Modeling      | `/05_Modeling_XGBoost.ipynb`            |
+| Notebook: Capstone Modeling      | `/detecting_financial_fraud.ipynb`            |
 | Final Model Export               | `models/fraud_xgb_tuned.pkl`            |
 | All Evaluation Visuals           | `images/` folder                        |
 
