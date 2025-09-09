@@ -14,15 +14,20 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-      // Try to call the Python API first
+      // Try to call the Python API first with timeout handling
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 30000) // 30 second timeout
+      
       const response = await fetch(`${PYTHON_API_URL}/predict`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ data }),
-        timeout: 30000, // 30 second timeout
+        signal: controller.signal
       })
+
+      clearTimeout(timeoutId)
 
       if (response.ok) {
         const result = await response.json()
@@ -33,10 +38,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Fallback: Simple prediction logic when Python API is not available
-    const predictions = data.map((row: any) => {
+    const predictions = data.map((row: Record<string, unknown>) => {
       // Simple heuristic based on transaction amount and other factors
-      const transactionAmt = parseFloat(row.TransactionAmt) || 0
-      const cardType = row.card4 || 'unknown'
+      const transactionAmt = parseFloat(String(row.TransactionAmt)) || 0
+      const cardType = String(row.card4) || 'unknown'
       
       // More sophisticated fallback logic
       let riskScore = 0

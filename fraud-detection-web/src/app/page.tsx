@@ -11,7 +11,6 @@ import { Download, CreditCard, AlertCircle, CheckCircle } from 'lucide-react'
 
 interface PredictionData {
   [key: string]: string | number
-  prediction?: number
 }
 
 interface ChartData {
@@ -24,7 +23,7 @@ export default function FraudDetectionApp() {
   const [predictions, setPredictions] = useState<PredictionData[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [dataLoaded, setDataLoaded] = useState(false)
+  const [, setDataLoaded] = useState(false)
 
   // Load sample data on component mount
   useEffect(() => {
@@ -47,7 +46,7 @@ export default function FraudDetectionApp() {
           header: true,
           skipEmptyLines: true
         })
-      } catch (err) {
+      } catch {
         setError('Failed to load sample data')
       }
     }
