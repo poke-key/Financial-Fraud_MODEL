@@ -4,6 +4,8 @@ const PYTHON_API_URL = process.env.FINANCIAL_SERVICE_URL || 'http://localhost:50
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('Using API URL:', PYTHON_API_URL)
+    console.log('Environment variable FINANCIAL_SERVICE_URL:', process.env.FINANCIAL_SERVICE_URL)
     const { data } = await request.json()
     
     if (!data || !Array.isArray(data) || data.length === 0) {
@@ -18,6 +20,8 @@ export async function POST(request: NextRequest) {
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), 30000) // 30 second timeout
       
+      console.log('Attempting to fetch from:', `${PYTHON_API_URL}/predict`)
+      
       const response = await fetch(`${PYTHON_API_URL}/predict`, {
         method: 'POST',
         headers: {
@@ -28,12 +32,21 @@ export async function POST(request: NextRequest) {
       })
 
       clearTimeout(timeoutId)
+      
+      console.log('Response status:', response.status)
+      console.log('Response ok:', response.ok)
 
       if (response.ok) {
         const result = await response.json()
+        console.log('Python API success, returning result')
         return NextResponse.json(result)
+      } else {
+        console.log('Response not ok, status text:', response.statusText)
+        const errorText = await response.text()
+        console.log('Error response body:', errorText)
       }
     } catch (pythonApiError) {
+      console.error('Python API error details:', pythonApiError)
       console.warn('Python API unavailable, falling back to simple prediction:', pythonApiError)
     }
 
