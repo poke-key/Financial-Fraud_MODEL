@@ -1,0 +1,101 @@
+TransactionAmt,id_02,D15,TransactionHour,TransactionDay,TransactionWeekday,ProductCD,card4,card6,DeviceType,id_30,id_31,P_emaildomain,R_emaildomain,id_30_missing_flag,id_31_missing_flag,id_33_missing_flag
+639.46,22.26,137.5,7,5,5,W,visa,charge card,mobile,Windows 10,chrome,gmail.com,yahoo.com,0,0,0
+716.05,353.65,209.8,14,19,2,W,mastercard,charge card,mobile,iOS,safari,yahoo.com,yahoo.com,1,0,0
+379.99,185.9,172.0,8,26,0,S,visa,debit,desktop,Other,safari,hotmail.com,yahoo.com,0,0,0
+773.09,492.76,427.7,3,13,2,S,american express,credit,mobile,iOS,firefox,hotmail.com,gmail.com,0,0,0
+462.31,142.27,462.7,22,18,1,C,visa,credit,desktop,iOS,edge,hotmail.com,gmail.com,0,1,0
+655.47,203.86,457.3,14,5,2,H,mastercard,charge card,mobile,Other,edge,aol.com,hotmail.com,0,0,1
+91.0,33.09,54.8,20,6,6,S,visa,debit,mobile,Other,edge,hotmail.com,gmail.com,0,1,1
+111.64,223.03,226.9,23,29,5,C,mastercard,charge card,desktop,iOS,firefox,yahoo.com,hotmail.com,0,0,1
+488.66,64.82,181.5,9,8,0,H,visa,credit,mobile,Windows 10,firefox,yahoo.com,aol.com,0,1,1
+964.37,465.17,377.6,22,7,5,C,discover,charge card,mobile,Android,edge,gmail.com,yahoo.com,0,0,1
+21.13,281.42,294.2,0,3,5,W,mastercard,credit,desktop,iOS,chrome,yahoo.com,hotmail.com,1,0,0
+723.38,442.37,288.1,7,26,3,S,mastercard,credit,desktop,Android,safari,aol.com,aol.com,1,0,0
+60.71,366.82,400.3,3,8,1,H,discover,credit,mobile,MacOS,safari,aol.com,yahoo.com,0,1,0
+50.68,499.65,418.0,2,30,6,H,mastercard,debit,mobile,Android,firefox,aol.com,gmail.com,0,1,0
+985.31,139.95,392.0,14,10,3,R,discover,credit,desktop,iOS,firefox,gmail.com,gmail.com,1,0,0
+584.22,256.4,426.4,5,2,4,W,mastercard,credit,desktop,MacOS,edge,gmail.com,yahoo.com,0,0,1
+657.41,286.96,158.2,8,7,5,C,mastercard,debit,mobile,MacOS,safari,aol.com,hotmail.com,0,0,1
+621.2,285.87,50.0,17,7,4,C,mastercard,debit,desktop,MacOS,safari,hotmail.com,yahoo.com,1,1,0
+667.9,281.76,465.9,3,31,1,C,visa,credit,desktop,iOS,safari,yahoo.com,hotmail.com,0,1,1
+251.2,455.0,25.4,20,14,6,C,visa,credit,mobile,MacOS,safari,yahoo.com,aol.com,1,0,0
+75.34,442.72,452.0,17,2,6,C,mastercard,debit,desktop,Windows 10,safari,hotmail.com,gmail.com,1,0,0
+666.97,183.3,279.9,13,20,5,H,mastercard,credit,desktop,Android,chrome,yahoo.com,hotmail.com,1,0,1
+159.28,353.63,191.3,1,28,3,H,mastercard,debit,mobile,iOS,firefox,yahoo.com,gmail.com,0,1,1
+278.68,44.02,386.7,11,21,4,S,american express,credit,desktop,iOS,firefox,hotmail.com,gmail.com,0,1,1
+728.57,163.7,303.1,16,4,3,R,mastercard,debit,desktop,Android,chrome,yahoo.com,hotmail.com,1,0,1
+623.19,335.06,62.3,9,17,2,S,american express,debit,mobile,Other,firefox,yahoo.com,aol.com,1,0,1
+406.13,418.53,151.9,6,14,6,R,american express,debit,mobile,Android,firefox,aol.com,yahoo.com,0,1,1
+93.48,476.48,117.4,9,8,6,H,mastercard,credit,desktop,MacOS,edge,gmail.com,aol.com,1,0,1
+494.43,129.55,328.0,0,29,6,W,discover,credit,desktop,Other,edge,gmail.com,yahoo.com,0,1,0
+801.44,337.11,493.9,19,11,6,S,discover,charge card,mobile,MacOS,edge,aol.com,hotmail.com,0,1,1
+626.79,144.55,38.7,9,8,2,C,american express,charge card,desktop,MacOS,firefox,yahoo.com,aol.com,0,0,0
+414.93,172.13,233.0,1,7,6,S,discover,charge card,desktop,Other,edge,aol.com,gmail.com,1,1,1
+853.46,477.18,209.5,23,24,4,R,mastercard,debit,desktop,iOS,edge,aol.com,gmail.com,1,1,1
+724.21,421.85,459.8,19,18,0,S,visa,credit,mobile,MacOS,edge,yahoo.com,gmail.com,1,1,1
+211.74,170.15,380.6,12,9,6,S,american express,credit,mobile,Windows 10,chrome,hotmail.com,yahoo.com,0,0,0
+949.62,107.69,10.2,4,8,1,S,visa,charge card,desktop,Android,safari,hotmail.com,yahoo.com,0,0,1
+108.19,22.58,156.0,21,30,3,S,mastercard,credit,desktop,Windows 10,safari,gmail.com,gmail.com,1,1,1
+69.05,327.3,6.3,13,27,3,W,discover,debit,mobile,MacOS,edge,yahoo.com,hotmail.com,1,1,1
+825.75,300.31,161.2,7,27,0,C,discover,credit,mobile,Other,edge,hotmail.com,gmail.com,1,1,0
+487.6,183.86,129.2,8,29,4,C,visa,charge card,desktop,Windows 10,firefox,aol.com,aol.com,0,1,1
+448.23,18.45,147.1,12,23,1,C,american express,debit,mobile,Android,safari,hotmail.com,aol.com,1,1,1
+230.61,363.43,157.8,23,18,6,H,mastercard,credit,mobile,iOS,safari,gmail.com,yahoo.com,1,0,1
+179.52,16.93,267.1,8,2,0,R,american express,charge card,desktop,Android,chrome,gmail.com,hotmail.com,1,1,1
+340.77,483.09,126.2,15,4,6,W,discover,debit,desktop,Other,chrome,yahoo.com,yahoo.com,1,0,0
+118.54,384.58,303.2,19,8,6,R,discover,debit,mobile,iOS,edge,hotmail.com,gmail.com,0,0,0
+264.72,49.78,119.9,17,3,1,W,discover,debit,mobile,iOS,chrome,yahoo.com,hotmail.com,1,1,0
+687.42,462.72,393.9,20,19,5,H,discover,credit,desktop,MacOS,safari,yahoo.com,gmail.com,0,0,1
+595.08,413.88,460.6,14,4,3,C,discover,debit,mobile,Android,chrome,gmail.com,aol.com,1,1,0
+91.42,481.34,418.0,18,19,0,C,visa,credit,mobile,Other,edge,hotmail.com,yahoo.com,1,1,0
+470.06,210.09,160.5,3,28,1,C,discover,charge card,mobile,iOS,edge,gmail.com,aol.com,0,1,1
+323.34,485.39,202.1,16,27,0,R,discover,debit,desktop,MacOS,safari,aol.com,aol.com,0,0,1
+549.26,464.56,219.1,22,16,0,W,mastercard,charge card,desktop,iOS,chrome,aol.com,gmail.com,0,0,1
+947.07,327.38,77.0,22,10,4,C,discover,debit,mobile,MacOS,edge,yahoo.com,aol.com,0,0,0
+276.32,397.1,207.5,16,9,6,W,american express,charge card,mobile,Other,edge,yahoo.com,aol.com,1,1,1
+551.96,276.28,227.7,10,28,1,H,discover,credit,mobile,Windows 10,safari,aol.com,aol.com,1,0,1
+964.83,71.86,482.7,10,28,0,S,visa,charge card,mobile,Windows 10,firefox,aol.com,yahoo.com,0,1,1
+338.63,349.43,324.9,10,28,5,R,discover,debit,mobile,Other,chrome,gmail.com,yahoo.com,1,0,0
+434.03,58.24,316.9,3,15,1,C,visa,credit,mobile,Windows 10,safari,hotmail.com,hotmail.com,1,0,0
+531.21,287.3,396.3,5,6,0,R,discover,charge card,desktop,Android,firefox,yahoo.com,aol.com,1,1,1
+666.87,450.47,232.6,9,22,4,H,visa,debit,mobile,Other,safari,aol.com,hotmail.com,1,1,0
+999.37,428.13,53.3,12,19,2,R,american express,charge card,mobile,Windows 10,edge,hotmail.com,gmail.com,0,1,1
+775.76,122.76,401.0,7,21,1,R,american express,charge card,desktop,Windows 10,chrome,hotmail.com,aol.com,0,1,0
+90.22,154.6,373.7,5,7,1,R,american express,charge card,mobile,MacOS,safari,aol.com,hotmail.com,1,0,1
+962.9,78.97,483.3,21,24,5,S,american express,credit,mobile,Windows 10,safari,gmail.com,aol.com,1,1,1
+822.44,470.74,54.2,7,16,0,R,american express,charge card,desktop,Windows 10,edge,hotmail.com,aol.com,0,0,0
+946.27,159.14,246.3,3,8,4,H,discover,debit,mobile,Other,edge,yahoo.com,aol.com,0,1,1
+939.06,147.07,345.1,6,15,3,H,american express,credit,mobile,Other,safari,gmail.com,aol.com,1,0,0
+949.02,413.85,45.8,6,21,5,R,visa,credit,mobile,MacOS,firefox,yahoo.com,gmail.com,0,0,0
+328.63,82.3,450.3,0,9,6,H,mastercard,charge card,mobile,MacOS,chrome,gmail.com,yahoo.com,0,1,0
+588.89,17.73,132.7,4,24,3,R,visa,charge card,desktop,Android,edge,hotmail.com,gmail.com,1,0,0
+727.27,455.29,329.5,9,15,5,W,visa,debit,mobile,Android,chrome,aol.com,aol.com,0,0,1
+608.34,42.18,137.5,20,19,4,C,discover,charge card,mobile,Android,edge,gmail.com,gmail.com,0,1,1
+888.1,212.77,413.7,12,14,5,W,american express,debit,mobile,iOS,safari,yahoo.com,aol.com,0,0,0
+93.32,57.32,369.4,4,18,0,R,american express,charge card,desktop,Android,safari,aol.com,gmail.com,1,1,1
+103.69,258.63,77.4,15,8,6,W,american express,charge card,mobile,Windows 10,safari,yahoo.com,aol.com,0,1,0
+180.5,354.32,154.5,10,12,0,H,mastercard,charge card,mobile,Windows 10,firefox,gmail.com,gmail.com,0,1,1
+453.7,87.13,155.8,10,25,4,R,visa,credit,desktop,MacOS,chrome,gmail.com,hotmail.com,1,1,1
+607.12,212.95,107.8,16,4,2,S,visa,debit,mobile,Other,safari,gmail.com,yahoo.com,1,0,0
+204.5,473.21,383.7,8,10,2,W,visa,debit,mobile,MacOS,firefox,aol.com,yahoo.com,1,0,1
+861.78,30.73,9.4,2,28,2,R,discover,charge card,mobile,Android,safari,gmail.com,aol.com,0,1,0
+801.34,312.88,416.0,11,3,3,W,mastercard,debit,mobile,Other,chrome,aol.com,hotmail.com,1,0,1
+779.14,47.43,316.6,16,17,1,C,american express,charge card,desktop,MacOS,chrome,yahoo.com,hotmail.com,0,0,0
+760.24,331.2,88.6,20,16,3,R,discover,charge card,mobile,iOS,firefox,aol.com,gmail.com,1,1,1
+796.35,299.8,176.0,2,10,3,S,visa,credit,mobile,iOS,chrome,gmail.com,aol.com,1,0,1
+909.06,290.11,94.1,19,16,4,H,visa,debit,desktop,iOS,chrome,yahoo.com,gmail.com,0,1,1
+524.12,308.8,181.9,9,13,3,C,visa,charge card,mobile,Windows 10,safari,gmail.com,aol.com,1,1,0
+333.43,295.54,70.7,11,10,5,S,mastercard,charge card,desktop,iOS,edge,hotmail.com,yahoo.com,0,1,1
+18.33,161.34,475.6,10,31,6,S,mastercard,credit,desktop,MacOS,chrome,hotmail.com,gmail.com,0,1,0
+597.29,85.58,90.4,22,25,4,H,discover,credit,mobile,iOS,firefox,aol.com,hotmail.com,1,0,0
+309.54,406.23,234.5,6,12,5,R,discover,debit,mobile,Android,edge,yahoo.com,yahoo.com,0,1,0
+641.21,438.32,277.3,3,23,6,R,visa,debit,desktop,MacOS,safari,aol.com,yahoo.com,1,0,0
+816.72,443.47,465.2,13,2,3,R,american express,credit,mobile,Windows 10,safari,yahoo.com,gmail.com,1,0,1
+791.4,77.42,143.4,15,23,6,H,discover,debit,desktop,Windows 10,chrome,hotmail.com,yahoo.com,0,1,0
+776.2,126.44,60.9,7,14,5,R,discover,credit,desktop,Android,chrome,yahoo.com,yahoo.com,1,1,0
+614.85,127.88,208.3,21,22,0,R,american express,credit,desktop,Android,edge,gmail.com,aol.com,1,1,0
+357.16,43.1,120.6,21,21,0,R,american express,credit,desktop,iOS,safari,yahoo.com,aol.com,1,0,0
+63.19,390.33,228.8,9,7,0,H,visa,debit,mobile,Other,edge,aol.com,hotmail.com,0,0,1
+357.04,392.61,432.9,10,9,0,C,discover,debit,mobile,Android,safari,yahoo.com,aol.com,1,1,1
+801.17,366.27,39.5,19,27,1,R,american express,debit,desktop,Windows 10,safari,hotmail.com,hotmail.com,1,1,0
+689.8,182.26,21.2,11,20,3,C,visa,credit,mobile,iOS,firefox,gmail.com,yahoo.com,1,0,0
