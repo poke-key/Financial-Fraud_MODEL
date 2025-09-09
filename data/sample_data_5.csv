@@ -1,0 +1,6 @@
+TransactionAmt,id_02,D15,TransactionHour,TransactionDay,TransactionWeekday,ProductCD,card4,card6,DeviceType,id_30,id_31,P_emaildomain,R_emaildomain,id_30_missing_flag,id_31_missing_flag,id_33_missing_flag
+639.46,22.26,137.5,7,5,5,W,visa,charge card,mobile,Windows 10,chrome,gmail.com,yahoo.com,0,0,0
+716.05,353.65,209.8,14,19,2,W,mastercard,charge card,mobile,iOS,safari,yahoo.com,yahoo.com,1,0,0
+379.99,185.9,172.0,8,26,0,S,visa,debit,desktop,Other,safari,hotmail.com,yahoo.com,0,0,0
+773.09,492.76,427.7,3,13,2,S,american express,credit,mobile,iOS,firefox,hotmail.com,gmail.com,0,0,0
+462.31,142.27,462.7,22,18,1,C,visa,credit,desktop,iOS,edge,hotmail.com,gmail.com,0,1,0
